@@ -6,11 +6,11 @@ Gem::Specification.new do |s|
   s.name        = "deordinalize"
   s.version     = Deordinalize::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.authors     = ["Jeremy Ruppel"]
+  s.email       = ["jeremy.ruppel@gmail.com"]
+  s.homepage    = "https://github.com/jeremyruppel/deordinalize"
+  s.summary     = %q{Small gem to 'deordinalize' strings into the integers they reference.}
+  s.description = %q{Small gem to 'deordinalize' strings into the integers they reference. Intended to be hella useful in cucumber steps.}
 
   s.rubyforge_project = "deordinalize"
   
