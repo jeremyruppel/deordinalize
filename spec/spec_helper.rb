@@ -1,1 +1,2 @@
+require 'linguistics'
 require 'deordinalize'

@@ -11,19 +11,26 @@ describe "a string" do
     end
   end
   
-  %w|
+  Linguistics.use :en
   
-  first
-  second
-  third
-  fourth
-  fifth
+  cases = (1..20).to_a
   
-  |.each_with_index do |ordinal, index|
-    
-    it "should deordinalize '#{ordinal}' to #{index}" do
-      ordinal.deordinalize.should == index
-    end
-    
+  cases.map { |i| [ i.en.ordinal, i ] }.each do |ordinal, number|
+    # puts ordinal
+    # puts number
   end
+  
+  cases.map { |i| [ i.en.numwords.en.ordinal, i ] }.each do |ordinal, number|
+    it "should deordinalize '#{ordinal}' to #{number}" do
+      ordinal.deordinalize.should == number
+    end
+  end
+  
+  
+    # 
+    # .each_with_index do |ordinal, index|
+    #   
+
+    #   
+    # end
 end
