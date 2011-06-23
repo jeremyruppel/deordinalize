@@ -15,15 +15,15 @@ Usage:
 
 We can deordinalize numeric ordinals:
 
-	'1st'  # => 1
-	'11th' # => 11
-	'99th' # => 99
+	'1st'.deordinalize   # => 1
+	'11th'.deordinalize  # => 11
+	'99th'.deordinalize  # => 99
 	
 Or we can deordinalize more verbose ordinals:
 
-	'first'.deordinalize        # => 1
-	'eleventh'.deordinalize     # => 11
-	'ninety-ninth'.deordinalize # => 99
+	'first'.deordinalize         # => 1
+	'eleventh'.deordinalize      # => 11
+	'ninety-ninth'.deordinalize  # => 99
 
 This is meant to be hella useful in cucumber steps, like:
 
