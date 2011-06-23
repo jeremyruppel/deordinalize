@@ -8,7 +8,8 @@ module Deordinalize
     'ninth'     => 9,
     'eleventh'  => 11,
     'twelfth'   => 12,
-    'twentieth' => 20
+    'twentieth' => 20,
+    'thirtieth' => 30
   }
   
   REGULARS = {
@@ -22,15 +23,28 @@ module Deordinalize
     'ten'   => 10
   }
   
+  TENS = {
+    'twenty' => 20
+  }
+  
+  TENS_MATCH = /(#{TENS.keys.join '|'})-/
+  
   
   def deordinalize
     
+    sum = 0
+    
+    if tens = self[TENS_MATCH, 1]
+      sum = TENS[tens]
+      self.sub! "#{tens}-", ''
+    end
+    
     if explicit = EXPLICITS[self]
-      explicit
+      sum + explicit
     elsif regular = self[/^(.+)teenth$/, 1]
       10 + REGULARS[regular]
     elsif regular = self[/^(.+)th$/, 1]
-      REGULARS[ regular ]
+      sum + REGULARS[ regular ]
     end
     
   end

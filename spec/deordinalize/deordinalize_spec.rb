@@ -13,7 +13,7 @@ describe "a string" do
   
   Linguistics.use :en
   
-  cases = (1..20).to_a
+  cases = (1..30).to_a
   
   cases.map { |i| [ i.en.ordinal, i ] }.each do |ordinal, number|
     # puts ordinal
@@ -26,11 +26,4 @@ describe "a string" do
     end
   end
   
-  
-    # 
-    # .each_with_index do |ordinal, index|
-    #   
-
-    #   
-    # end
 end
