@@ -16,8 +16,9 @@ describe "a string" do
   cases = (1..100).to_a
   
   cases.map { |i| [ i.en.ordinal, i ] }.each do |ordinal, number|
-    # puts ordinal
-    # puts number
+    it "should deordinalize '#{ordinal}' to #{number}" do
+      ordinal.deordinalize.should == number
+    end
   end
   
   cases.map { |i| [ i.en.numwords.en.ordinal, i ] }.each do |ordinal, number|

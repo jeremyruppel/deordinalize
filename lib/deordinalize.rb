@@ -1,6 +1,5 @@
 module Deordinalize
   
-  
   EXPLICITS = {
     'first'         => 1,
     'second'        => 2,
@@ -43,21 +42,33 @@ module Deordinalize
   
   TENS_MATCH = /(#{TENS.keys.join '|'})-/
   
+  ORDINAL = /^(\d+)(?:st|nd|rd|th)$/
   
   def deordinalize
     
     sum = 0
     
+    # if we have a tens prefix, assign it to the sum and remove it from our self
     if tens = self[TENS_MATCH, 1]
       sum = TENS[tens]
       self.sub! "#{tens}-", ''
     end
     
     # TODO try refactoring this block out into its own method
-    if explicit = EXPLICITS[self]
+    
+    # if we have a numeric ordinal, pretty much just need to strip out the number
+    if ordinal = self[ORDINAL, 1]
+      ordinal.to_i
+      
+    # if we have an explicit ordinal, find it in the map
+    elsif explicit = EXPLICITS[self]
       sum + explicit
+      
+    # if we have a teen, find the regular prefix and add ten
     elsif regular = self[/^(.+)teenth$/, 1]
       10 + REGULARS[regular]
+    
+    # if we have a regular prefix, add it to the sum
     elsif regular = self[/^(.+)th$/, 1]
       sum + REGULARS[ regular ]
     end
