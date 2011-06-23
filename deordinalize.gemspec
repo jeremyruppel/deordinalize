@@ -13,6 +13,8 @@ Gem::Specification.new do |s|
   s.description = %q{TODO: Write a gem description}
 
   s.rubyforge_project = "deordinalize"
+  
+  s.add_development_dependency "rspec"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
