@@ -28,5 +28,5 @@ Or we can deordinalize more verbose ordinals:
 This is meant to be hella useful in cucumber steps, like:
 
 	When /^I click on the (.+) item in the list$/ do |ordinal|
-		page.find( :xpath, "//li[ordinal.deordinalize - 1]" ).click
+		page.find( :xpath, "//li[#{ordinal.deordinalize - 1}]" ).click
 	end
