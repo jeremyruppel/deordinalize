@@ -4,6 +4,9 @@ describe "a string" do
   it "should respond to deordinalize" do
     "hello".should respond_to(:deordinalize)
   end
+  it "should respond to deordinalize!" do
+    "hello".should respond_to(:deordinalize!)
+  end
   
   context "when not an ordinal" do
     it "should return nil" do

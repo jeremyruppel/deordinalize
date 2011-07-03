@@ -75,6 +75,10 @@ module Deordinalize
     
   end
   
+  def deordinalize!
+    
+  end
+  
 end
 
 String.send :include, Deordinalize
