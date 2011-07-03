@@ -18,6 +18,8 @@ describe "a string" do
   
   cases = (1..100).to_a
   
+  # using deordinalize straight up should give the ordinal index
+  
   cases.map { |i| [ i.en.ordinal, i ] }.each do |ordinal, number|
     it "should deordinalize '#{ordinal}' to #{number}" do
       ordinal.deordinalize.should == number
@@ -27,6 +29,20 @@ describe "a string" do
   cases.map { |i| [ i.en.numwords.en.ordinal, i ] }.each do |ordinal, number|
     it "should deordinalize '#{ordinal}' to #{number}" do
       ordinal.deordinalize.should == number
+    end
+  end
+  
+  # adding a bang should give the zero-based index
+  
+  cases.map { |i| [ i.en.ordinal, i ] }.each do |ordinal, number|
+    it "should deordinalize '#{ordinal}' to #{number - 1}" do
+      ordinal.deordinalize!.should == ( number - 1 )
+    end
+  end
+  
+  cases.map { |i| [ i.en.numwords.en.ordinal, i ] }.each do |ordinal, number|
+    it "should deordinalize '#{ordinal}' to #{number - 1}" do
+      ordinal.deordinalize!.should == ( number - 1 )
     end
   end
   

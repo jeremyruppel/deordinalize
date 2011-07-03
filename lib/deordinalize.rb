@@ -76,7 +76,7 @@ module Deordinalize
   end
   
   def deordinalize!
-    
+    self.deordinalize - 1
   end
   
 end
